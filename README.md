@@ -1,5 +1,4 @@
 # RSA
-======
 
 ## Summery
 Simple RSA implementation with a detail to readabiltiy, meant to demonstrate
@@ -8,7 +7,6 @@ due to the similarity in syntax to other languages.
 
 ## The Algorithm
 ### RSA Algorithm
-    =============
 ### Based on: ((m**e)**d) % n = m
 e : encryption, d: decryption
 
@@ -16,7 +14,6 @@ e : encryption, d: decryption
 ### Decryption: (c**d == (m**e)**d == m)  % n
 
 ### Key Generation
-    ==============
 p and q, two distrinct prime numbers
 n = pq
 
