@@ -19,19 +19,14 @@
 		-> d is the modular multiplicative inverse of e (modulo(fi(n)))
 *******************************************************************************/
 
-typedef struct	s_rsa {
+#include "rsa.h"
 
-  unsigned int	n;
-  unsigned int	fi;
-  unsigned int	e;
-  unsigned int	d;
-} t_rsa;
-
-t_rsa		rsa_algo(unsigned int p, unsigned int q)
+t_rsa		rsa_algo(long p, long q)
 {
-  t_rsa		ret;
+  t_rsa		ret = { 0 };
 
   ret.n = p * q;
   ret.fi = (p - 1) * (q - 1);
-  
+
+  return ret;
 }

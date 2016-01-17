@@ -27,10 +27,10 @@ int		main_primes(int ac, char **av, char **env)
   //easiest to visually verify this
   sieve_of_eratosthenes(255);
   printf("Limit used: %ld, Primes Found: %ld\n", g_prime_list.limit_used, g_prime_list.length);
-  for (int i = 0; i < g_prime_list.length; i++)
+  for (long i = 0; i < g_prime_list.length; i++)
     printf("%ld, ", g_prime_list.primes[i]);
   printf("\n");
-  for (int i = 0; i < g_prime_list.length; i++)
+  for (long i = 0; i < g_prime_list.length; i++)
     {
       if (!is_prime(g_prime_list.primes[i]))
 	{

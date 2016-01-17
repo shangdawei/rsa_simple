@@ -13,7 +13,7 @@ t_primes	g_prime_list = { 0 };
 /*
   largest number that can devide two numbers
  */
-unsigned long	gcd(unsigned long a, unsigned long b)
+long	gcd(long a, long b)
 {
   if (b == 0)
     return a;
@@ -23,12 +23,13 @@ unsigned long	gcd(unsigned long a, unsigned long b)
 
 /*
   simple memory effecient way to determine if number is prime
- */
+  not 100% sure about the long return for roundl
+*/
 char		is_prime(long number)
 {
   if (number < 2)
     return 0;
-  for (long long i = 2; i < (int)round(sqrtl(number)); i++)
+  for (long i = 2; i < (long)lround(sqrtl(number)) + 1; i++)
     {
       if (number % i == 0)
 	return 0;
@@ -40,7 +41,7 @@ char		is_prime(long number)
 void		sieve_of_eratosthenes(long limit)
 {
   char		*primes;
-  long		prime_optimization = (long)floor(sqrtl(limit));
+  long		prime_optimization = (long)lround(sqrtl(limit)) + 1;
   long		prime_count = limit - 2; //0 and 1 are not primes, so -2
 
   primes = malloc(limit * sizeof(char));
@@ -49,11 +50,11 @@ void		sieve_of_eratosthenes(long limit)
   //find primes
   primes[0] = 0;
   primes[1] = 0;
-  for (unsigned long i = 2; i < prime_optimization; i++)
+  for (long i = 2; i < prime_optimization; i++)
     {
       if (primes[i])
 	{
-	  for (unsigned long j = i * i; j < limit; j += i)
+	  for (long j = i * i; j < limit; j += i)
 	    {
 	      if (primes[j])
 		{
@@ -69,9 +70,9 @@ void		sieve_of_eratosthenes(long limit)
     free(g_prime_list.primes);
   g_prime_list.limit_used = limit;
   g_prime_list.length = prime_count;
-  g_prime_list.primes = malloc(prime_count * sizeof(unsigned long));
-  int j = 0;
-  for (int i = 0; i < limit; i++)
+  g_prime_list.primes = malloc(prime_count * sizeof(long));
+  long j = 0;
+  for (long i = 0; i < limit; i++)
     {
       if (primes[i])
 	{

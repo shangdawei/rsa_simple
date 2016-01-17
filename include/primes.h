@@ -2,16 +2,14 @@
 # define __MATH_PRIMES__
 
 typedef struct  s_primes {
-  unsigned long	limit_used;
-  unsigned long	length;
-  unsigned long	*primes;
+  long		limit_used;
+  long		length;
+  long		*primes;
 } t_primes;
-
 
 extern t_primes	g_prime_list;
 
-
-unsigned long	gcd(unsigned long a, unsigned long b);
+long		gcd(long a, long b);
 char		is_prime(long number);
 
 //Generate a list of Primes
