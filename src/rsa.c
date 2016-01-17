@@ -19,14 +19,29 @@
 		-> d is the modular multiplicative inverse of e (modulo(fi(n)))
 *******************************************************************************/
 
+#include "primes.h"
 #include "rsa.h"
+
+long		pick_e(long fi)
+{
+  for (long i = 0; i < g_prime_list.length; i++)
+    {
+      //this will simply pick the first, not a great idea,
+      //but simple to understand algo
+      if (gcd(i, fi) == 1)
+	return i;
+    }
+  //must be greater than 1, so this is sufficent to indicate failure
+  return 0;
+}
 
 t_rsa		rsa_algo(long p, long q)
 {
   t_rsa		ret = { 0 };
-
+  
   ret.n = p * q;
   ret.fi = (p - 1) * (q - 1);
-
+  ret.e = pick_e(ret.fi);
+  
   return ret;
 }

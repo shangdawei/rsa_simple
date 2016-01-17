@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "primes.h"
-#include "modular_exponent.h"
+#include "modulars.h"
 
 
 //Test main for modular_exponents.c
