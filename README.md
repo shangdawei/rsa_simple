@@ -7,7 +7,7 @@ due to the similarity in syntax to other languages.
 
 ## The Algorithm
 ### RSA Algorithm
-**Based on**: ((m**e)**d) % n = m
+**Based on**: ((m\*\*e)\*\*d) % n = m
 e : encryption, d: decryption
 
 **Encryption**: ciphertext = (message**e) % n
