@@ -30,3 +30,7 @@
 
 # Debug files
 *.dSYM/
+
+# My Executables
+rsa
+rsa_tests
