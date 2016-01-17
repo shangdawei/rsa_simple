@@ -11,6 +11,7 @@ due to the similarity in syntax to other languages.
 e : encryption, d: decryption
 
 **Encryption**: ciphertext = (message\*\*e) % n
+
 **Decryption**: (c**d == (m\*\*e)\*\*d == m)  % n
 
 ### Key Generation
@@ -21,10 +22,12 @@ fi is Euler's Totient Function
 fi(n) = fi(p) \* fi(q) = (p - 1) \* (q - 1) = n - (p + q - 1)
 
 chose e, *the public key* so that:
+
       1. 1 < e < fi(n)
       2. gcd(e, fi(n)) == 1 (i.e. e and fi(n) are coprime
 
 chose d, *the private key* so that:
+
       1. d == (e \*\* -1) % fi(n)
       ...d is the modular multiplicative inverse of e modulo(fi(n))
 
@@ -56,7 +59,7 @@ make fclean
 
 ## Directory Structure
 
-| Function name		| Description					|
+| Directory / File	| Description					|
 | -------------		| -----------					|
 | src			| Folder containing all the C source files	|
 | include		| Folder containing all the C include files	|
