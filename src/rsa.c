@@ -28,7 +28,7 @@ long		pick_e(long fi)
   //Ensure a list of pirmes has been generated
   //if length is 0, user didn't pass paramaters, use defined limit
   if (g_prime_list.length == 0)
-    sieve_of_eratosthenes(SIEVE_LIMIT);
+    sieve_of_eratosthenes(RSA_SIEVE_LIMIT);
 
   for (long i = 0; i < g_prime_list.length; i++)
     {

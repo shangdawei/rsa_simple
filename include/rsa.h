@@ -1,7 +1,34 @@
+/******************************************************************************
+	RSA Algorithm
+	Reminder: ((m**e)**d) % n = m
+	e: encryption, d: decryption
+	Encryption: ciphertext = message**e	% n
+	Decryption: (c**d == (m**e)**d == m )	% n
+
+	RSA Key Generation
+	p and q, two distrinct prime numbers
+	n = pq
+	fi is Euler's Totient Function
+	fi(n) = fi(p) * fi(q) = (p - 1) * (q - 1) = n - (p + q - 1)
+
+	chose e, the public key:
+		- 1 < e < fi(n)
+		- gcd(e, fi(n)) == 1 (i.e. e and fi(n) are coprime
+	chose d, the private key:
+		- d == e**-1 (mod fi(n))
+		-> d is the modular multiplicative inverse of e (modulo(fi(n)))
+*******************************************************************************/
+
 #ifndef __RSA__
 # define __RSA__
 
-//Limit to be used if user does not supply the limit as a program paramater
+/**
+   Limit to be used for call to sieve_of_eratosthenes by pick_e if not called prior
+   to rsa_keygen.
+
+   You can safely modify this value, it MUST be positive and greater than 3
+   The higher the better, but it will consume more memory.
+ **/
 # define	RSA_SIEVE_LIMIT 255
 
 typedef struct	s_rsa {
