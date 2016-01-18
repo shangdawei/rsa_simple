@@ -19,6 +19,7 @@
 		-> d is the modular multiplicative inverse of e (modulo(fi(n)))
 *******************************************************************************/
 
+#include "modulars.h"
 #include "primes.h"
 #include "rsa.h"
 
@@ -33,6 +34,16 @@ long		pick_e(long fi)
     }
   //must be greater than 1, so this is sufficent to indicate failure
   return 0;
+}
+
+long		rsa_encrypt(long msg, long e, long n)
+{
+  return right_to_left(msg, e, n);
+}
+
+long		rsa_decrypt(long cyphertext, long d, long n)
+{
+  return right_to_left(cyphertext, d, n);
 }
 
 t_rsa		rsa_keygen(long p, long q)
