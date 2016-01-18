@@ -5,7 +5,7 @@
 ** Login   <ksa28>
 ** 
 ** Started on  Mon Jan 18 18:50:31 2016 Kevin Almansa
-** Last update Mon Jan 18 18:50:43 2016 Kevin Almansa
+** Last update Mon Jan 18 19:02:33 2016 Kevin Almansa
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,26 +19,34 @@ int		main(int ac, char **av)
 
   //Seed for random
   srandom(time(NULL));
-  //Generate a list of prime numbers, used by keygen
-  sieve_of_eratosthenes(atol(av[1]));
-  printf("This program can accept 2 paramaters, p and q, else random values will be used");
-  if (ac == 3)
+  printf("This program can accept 3 paramaters or no paramaters.\n");
+  printf("Paramaters: limit to use by Sieve, p and q.\n");
+  printf("If no paramaters are given random values will be used for p and q,");
+  printf("and the Sieve will default to a defined value.");
+
+  if (ac == 4)
     {
-      p = atol(av[1]);
-      q = atol(av[2]);
+      //Generate a list of prime numbers, used by keygen
+      sieve_of_eratosthenes(atol(av[1]));
+      p = atol(av[2]);
+      q = atol(av[3]);
     }
   else
     {
       //to generate p and q
-      p = random() % g_prime_list.length;
-      q = random() % g_prime_list.length;
+      p = g_prime_list.primes[random() % g_prime_list.length];
+      q = g_prime_list.primes[random() % g_prime_list.length];
     }
   printf("P used: %ld, Q used: %ld\n", p, q);
 
+  //Generate RSA keys
   t_rsa		results = rsa_keygen(p, q);
 
   //Output Results
   printf("N: %ld\nfi(N): %ld\nChosen e: %ld\nd: %ld\n",
 	 results.n, results.fi, results.e, results.d);
+
+  if (g_prime_list.length != 0)
+    free(g_prime_list.primes);
   return 0;
 }
