@@ -7,6 +7,10 @@ due to the similarity in syntax to other languages.
 
 This was written for educational purposes.
 
+## Compatability
+This was written and tested on a Linux computer running Kernel 4.2.
+It should work on any Linux with gcc installed.
+
 ## The Algorithm
 ### RSA Algorithm
 **Based on**: ((m\*\*e)\*\*d) % n = m
