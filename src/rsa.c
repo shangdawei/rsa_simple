@@ -24,7 +24,7 @@
 
 long		pick_e(long fi)
 {
-  for (long i = 0; i < g_prime_list.length; i++)
+  for (long i = 2; i < g_prime_list.length; i++)
     {
       //this will simply pick the first, not a great idea,
       //but simple to understand algo
@@ -35,13 +35,13 @@ long		pick_e(long fi)
   return 0;
 }
 
-t_rsa		rsa_algo(long p, long q)
+t_rsa		rsa_keygen(long p, long q)
 {
   t_rsa		ret = { 0 };
   
   ret.n = p * q;
   ret.fi = (p - 1) * (q - 1);
   ret.e = pick_e(ret.fi);
-  
+  ret.d = modular_inverse(ret.e, ret.fi);
   return ret;
 }

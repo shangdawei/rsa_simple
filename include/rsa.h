@@ -8,6 +8,6 @@ typedef struct	s_rsa {
   long		d;
 } t_rsa;
 
-t_rsa		rsa_algo(long p, long q);
+t_rsa		rsa_keygen(long p, long q);
 
 #endif

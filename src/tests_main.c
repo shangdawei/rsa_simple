@@ -2,21 +2,27 @@
 #include <stdlib.h>
 #include "primes.h"
 #include "modulars.h"
-
+#include "rsa.h"
 
 //Test main for modular_exponents.c
 int		main_modular_exponents(int ac, char **av, char **env)
 {
   long		result_simple;
   long		result_right_to_left;
+  long		result_inv;
   
   result_simple = modular_exponent_simple(atol(av[1]), atol(av[2]), atol(av[3]));
   printf("Modular_exp_simple: b = %ld, exp = %ld, mod = %ld\nc = %ld \n",
 	 atol(av[1]), atol(av[2]), atol(av[3]), result_simple);
+
   result_right_to_left = right_to_left(atol(av[1]), atol(av[2]), atol(av[3]));
   printf("Right_To_Left: b = %ld, exp = %ld, mod = %ld\nc = %ld \n",
 	 atol(av[1]), atol(av[2]), atol(av[3]), result_right_to_left);
-  if (result_simple == result_right_to_left)
+
+  result_inv = modular_inverse(17, 3120);
+  printf("Modular Inverse Check - e: %ld, fi: %ld, result: %ld, expected: %ld\n",
+	 17, 3120, result_inv, 2753);
+  if (result_simple == result_right_to_left && result_inv == 2753)
     return 1; //true
   return 0; //false
 }
@@ -41,6 +47,16 @@ int		main_primes(int ac, char **av, char **env)
   return 1;
 }
 
+int		main_rsa(int ac, char **av, char **env)
+{
+  t_rsa		results = rsa_keygen(61, 53);
+
+  printf("RSA Keygen Controled Test\np: %ld, q: %ld\n", 61, 53);
+  printf("N: %ld, fi(N): %ld, Chosen e: %ld, d: %ld\n",
+	 results.n, results.fi, results.e, results.d);
+  return 0;
+}
+
 int		main(int ac, char **av, char **env)
 {
   if (ac < 4)
@@ -60,6 +76,8 @@ int		main(int ac, char **av, char **env)
   else
     puts("Failed\n");
 
+  main_rsa(ac, av, env);
+  
   printf("Done\n\n");
   return 0;
 }
