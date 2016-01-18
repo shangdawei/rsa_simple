@@ -24,12 +24,12 @@
 
 long		pick_e(long fi)
 {
-  for (long i = 2; i < g_prime_list.length; i++)
+  for (long i = 0; i < g_prime_list.length; i++)
     {
       //this will simply pick the first, not a great idea,
       //but simple to understand algo
-      if (gcd(i, fi) == 1)
-	return i;
+      if (g_prime_list.primes[i] % fi != 0 && gcd(g_prime_list.primes[i], fi) == 1)
+	return g_prime_list.primes[i];
     }
   //must be greater than 1, so this is sufficent to indicate failure
   return 0;
