@@ -5,7 +5,7 @@
 ## Login   <ksa28>
 ## 
 ## Started on  Mon Jan 18 18:52:45 2016 Kevin Almansa
-## Last update Mon Jan 18 18:52:47 2016 Kevin Almansa
+## Last update Mon Jan 18 22:15:45 2016 Kevin Almansa
 ##
 
 RM		= rm -f
@@ -14,7 +14,7 @@ CC		= gcc
 NAME		= rsa
 NAME_TESTS	= rsa_tests
 
-CFLAGS		= -Iinclude/ -W -Wall -Wextra -O3 -march=native -ggdb3
+CFLAGS		= -Iinclude/ -W -Wall -Wextra -march=native -ggdb3
 LDFLAGS		= -lm
 
 SRCS_TEST	= src/modulars.c			\

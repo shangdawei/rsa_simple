@@ -5,7 +5,7 @@
 ** Login   <ksa28>
 ** 
 ** Started on  Mon Jan 18 18:50:31 2016 Kevin Almansa
-** Last update Mon Jan 18 19:08:06 2016 Kevin Almansa
+** Last update Mon Jan 18 22:47:16 2016 Kevin Almansa
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,6 +33,8 @@ int		main(int ac, char **av)
     }
   else
     {
+      sieve_of_eratosthenes(RSA_SIEVE_LIMIT);
+      
       //to generate p and q
       p = g_prime_list.primes[random() % g_prime_list.length];
       q = g_prime_list.primes[random() % g_prime_list.length];
