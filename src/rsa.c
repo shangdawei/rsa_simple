@@ -23,7 +23,7 @@
 #include "primes.h"
 #include "rsa.h"
 
-long		pick_e(long fi)
+static long	pick_e(long fi)
 {
   //Ensure a list of pirmes has been generated
   //if length is 0, user didn't pass paramaters, use defined limit
