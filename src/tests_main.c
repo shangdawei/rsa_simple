@@ -1,3 +1,12 @@
+/*
+** tests_main.c for RSA in /home/ksa28/Kent/RSA/src
+** 
+** Made by Kevin Almansa
+** Login   <ksa28>
+** 
+** Started on  Mon Jan 18 18:50:59 2016 Kevin Almansa
+** Last update Mon Jan 18 18:51:01 2016 Kevin Almansa
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "primes.h"

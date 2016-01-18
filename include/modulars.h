@@ -1,3 +1,13 @@
+/*
+** modulars.h for RSA in /home/ksa28/Kent/RSA/include
+** 
+** Made by Kevin Almansa
+** Login   <ksa28>
+** 
+** Started on  Mon Jan 18 18:52:22 2016 Kevin Almansa
+** Last update Mon Jan 18 18:52:24 2016 Kevin Almansa
+*/
+
 #ifndef __MATH_MODULAR_EXPONENT__
 # define __MATH_MODULAR_EXPONENT__
 

@@ -1,3 +1,13 @@
+/*
+** rsa.h for RSA in /home/ksa28/Kent/RSA/include
+** 
+** Made by Kevin Almansa
+** Login   <ksa28>
+** 
+** Started on  Mon Jan 18 18:52:01 2016 Kevin Almansa
+** Last update Mon Jan 18 18:52:03 2016 Kevin Almansa
+*/
+
 /******************************************************************************
 	RSA Algorithm
 	Reminder: ((m**e)**d) % n = m

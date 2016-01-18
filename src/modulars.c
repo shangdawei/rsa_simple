@@ -1,3 +1,13 @@
+/*
+** modulars.c for RSA in /home/ksa28/Kent/RSA/src
+** 
+** Made by Kevin Almansa
+** Login   <ksa28>
+** 
+** Started on  Mon Jan 18 18:51:21 2016 Kevin Almansa
+** Last update Mon Jan 18 18:51:23 2016 Kevin Almansa
+*/
+
 /*********************************************************************************
 	Modular Exponentiation and Modular Inverse used for RSA
 	Note that although this can be efficently done with more bits
