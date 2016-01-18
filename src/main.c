@@ -8,9 +8,11 @@ int		main(int ac, char **av)
 {
   long		p, q;
 
-  //Seed used to increase randomness of calls to random
+  //Seed for random
   srandom(time(NULL));
-  
+  //Generate a list of prime numbers, used by keygen
+  sieve_of_eratosthenes(atol(av[1]));
+  printf("This program can accept 2 paramaters, p and q, else random values will be used");
   if (ac == 3)
     {
       p = atol(av[1]);
@@ -19,7 +21,6 @@ int		main(int ac, char **av)
   else
     {
       //to generate p and q
-      sieve_of_eratosthenes(atol(av[1]));
       p = random() % g_prime_list.length;
       q = random() % g_prime_list.length;
     }

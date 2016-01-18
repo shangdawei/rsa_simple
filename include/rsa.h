@@ -1,6 +1,9 @@
 #ifndef __RSA__
 # define __RSA__
 
+//Limit to be used if user does not supply the limit as a program paramater
+# define	RSA_SIEVE_LIMIT 255
+
 typedef struct	s_rsa {
   long		n;
   long		fi;

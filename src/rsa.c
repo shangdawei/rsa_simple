@@ -25,14 +25,20 @@
 
 long		pick_e(long fi)
 {
+  //Ensure a list of pirmes has been generated
+  //if length is 0, user didn't pass paramaters, use defined limit
+  if (g_prime_list.length == 0)
+    sieve_of_eratosthenes(SIEVE_LIMIT);
+
   for (long i = 0; i < g_prime_list.length; i++)
     {
-      //this will simply pick the first, not a great idea,
+      //This will simply pick the first, not a great idea,
       //but simple to understand algo
       if (g_prime_list.primes[i] % fi != 0 && gcd(g_prime_list.primes[i], fi) == 1)
 	return g_prime_list.primes[i];
     }
-  //must be greater than 1, so this is sufficent to indicate failure
+
+  //Value must be greater than 1, so this is sufficent to indicate failure
   return 0;
 }
 
@@ -49,7 +55,7 @@ long		rsa_decrypt(long cyphertext, long d, long n)
 t_rsa		rsa_keygen(long p, long q)
 {
   t_rsa		ret = { 0 };
-  
+
   ret.n = p * q;
   ret.fi = (p - 1) * (q - 1);
   ret.e = pick_e(ret.fi);
