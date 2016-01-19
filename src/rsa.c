@@ -5,7 +5,7 @@
 ** Login   <ksa28>
 ** 
 ** Started on  Mon Jan 18 18:51:07 2016 Kevin Almansa
-** Last update Mon Jan 18 18:51:12 2016 Kevin Almansa
+** Last update Tue Jan 19 01:31:30 2016 Kevin Almansa
 */
 
 /******************************************************************************
@@ -66,6 +66,8 @@ t_rsa		rsa_keygen(long p, long q)
 {
   t_rsa		ret = { 0 };
 
+  //Ensure that n >= 2**b where b is the number of bits per block
+  //Example if encrypting a char, 2**8 = 256, thus n >= 256
   ret.n = p * q;
   ret.fi = (p - 1) * (q - 1);
   ret.e = pick_e(ret.fi);

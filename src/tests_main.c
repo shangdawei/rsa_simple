@@ -5,7 +5,7 @@
 ** Login   <ksa28>
 ** 
 ** Started on  Mon Jan 18 18:50:59 2016 Kevin Almansa
-** Last update Mon Jan 18 18:51:01 2016 Kevin Almansa
+** Last update Tue Jan 19 01:36:17 2016 Kevin Almansa
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,8 +61,33 @@ int		main_rsa(int ac, char **av, char **env)
   t_rsa		results = rsa_keygen(61, 53);
 
   printf("RSA Keygen Controled Test\np: %ld, q: %ld\n", 61, 53);
-  printf("N: %ld, fi(N): %ld, Chosen e: %ld, d: %ld\n",
+  printf("N: %ld, fi: %ld, Chosen e: %ld, d: %ld\n",
 	 results.n, results.fi, results.e, results.d);
+
+  char		*msg = "message";
+  long		ctxt[7];
+  int		i = 0;
+  while (msg[i] != '\0')
+    {
+      ctxt[i] = rsa_encrypt(msg[i], results.e, results.n);
+      ++i;
+    }
+
+  i = 0;
+  char		dec[8];
+  while (i < 7)
+    {
+      dec[i] = (char) rsa_decrypt(ctxt[i], results.d, results.n); //never do this, i know what i am doing, this is baaaaaaadddd
+      ++i;
+    }
+  dec[i] = '\0';
+
+  
+  printf("Msg: %s\n", msg, (char*)ctxt, dec);
+  printf("Ciphertext: [ ");
+  for (i = 0; i < 7; i++)
+    printf("%ld ", ctxt[i]);
+  printf("]\nDecrypted message: %s\n", dec);
   return 0;
 }
 
